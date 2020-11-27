@@ -26,11 +26,18 @@ images.forEach((image, index) => {
   });
 });
 
-window.onload = () => document.querySelector('h1').remove();
+//window.onload = () => document.querySelector('h1').remove();
+
+//window.onload = () => document.getElementById('remove').remove();
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("img").forEach(img => {
     img.onerror = function () {
       this.style.display = "none";
     };
+   img.onload = function () {
+        setTimeout(function () { 
+	document.getElementById('remove').remove();
+	}, 5000);
+   };
   });
 });
